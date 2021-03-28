@@ -9,6 +9,11 @@ app.use(express.urlencoded({ extended: false })); // for parsing html form x-www
 // and/or app.use(express.json()); // for parsing application/json
 app.use("/cat", require("./routes/catRoute"));
 
+app.get("/", (req, res) => {
+  console.log("get /");
+  res.send("Hello to node and demo try route /cat ");
+});
+
 db.on("connected", () => {
   app.listen(3000, () => {
     console.log("express server started on port 3000");
